@@ -25,7 +25,7 @@ var grounded : boolean;
 var myaudiosource : AudioSource;
 
 private var nextstep : float;
-var target : Transform;
+//var target : Transform;
 var chest : Transform;
 
 
@@ -64,7 +64,8 @@ private var reference : Transform;
 function Start()
 {
      
-     reference = new GameObject().transform; 
+    reference = new GameObject().transform; 
+    equip();
 }
 function Update()
 {
@@ -93,18 +94,18 @@ function Update()
 	 {
 		
 		
-		var localTarget = transform.InverseTransformPoint(target.position);
-		var addfloat = (Mathf.Atan2(localTarget.x, localTarget.z));
+		//var localTarget = transform.InverseTransformPoint(target.position);
+		//var addfloat = (Mathf.Atan2(localTarget.x, localTarget.z));
 		
 		canrun = false;
 		
-		var relativePos = target.transform.position - transform.position;
- 	 	var lookrotation = Quaternion.LookRotation(relativePos,Vector3.up);
- 	 	lookrotation.x = 0;
- 	 	lookrotation.z = 0;
- 	 	animator.SetFloat("hor",(localmagnitude.x) + (addfloat * 2), dampTime , 0.8);
-	 	animator.SetFloat("ver",(localmagnitude.z), dampTime , 0.8);
-	 	transform.rotation = Quaternion.Lerp(transform.rotation,lookrotation,Time.deltaTime * rotateSpeed);
+		//var relativePos = target.transform.position - transform.position;
+ 	 	//var lookrotation = Quaternion.LookRotation(relativePos,Vector3.up);
+ 	 	//lookrotation.x = 0;
+ 	 	//lookrotation.z = 0;
+ 	 	//animator.SetFloat("hor",(localmagnitude.x) + (addfloat * 2), dampTime , 0.8);
+	 	//animator.SetFloat("ver",(localmagnitude.z), dampTime , 0.8);
+	 	//transform.rotation = Quaternion.Lerp(transform.rotation,lookrotation,Time.deltaTime * rotateSpeed);
 	 	
 	 	
 	 }
@@ -258,11 +259,12 @@ function OnAnimatorIK()
 	 var animator = GetComponent(Animator);
 		if (canattack)
 		{
-			animator.SetLookAtPosition(target.position);
+			//animator.SetLookAtPosition(target.position);
 			animator.SetLookAtWeight(0.9,0.2,1,1,1);
 		}
 	
 }
+
 function weaponselect()
 {	
 	

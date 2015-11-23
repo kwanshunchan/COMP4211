@@ -6,6 +6,7 @@ private var recoilDirecion : Vector3;
 private var deathTime : float;
 private var alive : boolean = true;
 
+
 function Update(){
 	if( health <= 0 && alive){
 		alive = false;
@@ -57,3 +58,7 @@ function GetHealth() : float{
 	return health;
 }
 
+function Damage(damage:float)
+ {
+       health -= damage;
+ }

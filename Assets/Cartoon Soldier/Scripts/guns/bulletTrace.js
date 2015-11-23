@@ -1,4 +1,5 @@
 var life : float = 0.5;
+var damage: float = 25.0;
 var bulletSpeed : float = 1.0;
 var dustPrefab : GameObject;
 var bulletHolePrefab : GameObject;
@@ -68,8 +69,14 @@ function Update () {
 				hit.rigidbody.AddForceAtPosition(velocity* 1.5, hit.point);
 			}
 			var healthScript : health = hit.transform.root.GetComponent(health); //Health property.
+			var a : basichealth = hit.transform.root.GetComponent(basichealth);
+			if(a !=null)
+			{
+			    a.health -= 20;
+			    print(a.health);
+			}
 			if(healthScript != null){
-				healthScript.health -= 20;
+				//healthScript.health -= 20;
 				healthScript.SetLastHitTime();
 				var hitPointNoHeight : Vector3 = hit.point;//hit.point;
 				hitPointNoHeight.y = hit.transform.position.y;
