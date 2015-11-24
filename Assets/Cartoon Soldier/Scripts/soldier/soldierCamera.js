@@ -23,6 +23,12 @@ function Start(){
 
 function Update(){
 	var health : float = 100;
+	
+	if(Input.GetKey(KeyCode.Escape)){
+			Cursor.visible = true;
+			Screen.lockCursor = false;
+			Application.Quit();
+	}	
 	if(healthScript != null){
 		health = healthScript.GetHealth();
 	}
