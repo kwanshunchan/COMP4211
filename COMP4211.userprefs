@@ -1,11 +1,8 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Cartoon Soldier/Scripts/soldier/weaponController.js">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/updateMap.cs">
     <Files>
-      <File FileName="Assets/Cartoon Soldier/Scripts/soldier/soldierMovement.js" Line="13" Column="26" />
-      <File FileName="Assets/Cartoon Soldier/Scripts/soldier/soldierCamera.js" Line="1" Column="1" />
-      <File FileName="Assets/overlord/scripts/overlordcontrol.js" Line="1" Column="1" />
-      <File FileName="Assets/Cartoon Soldier/Scripts/soldier/weaponController.js" Line="50" Column="24" />
+      <File FileName="Assets/updateMap.cs" Line="15" Column="5" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
