@@ -4,9 +4,6 @@
 var aimSpeed : float = 5.0;
 var accuracyLossMultiplier : float = 0.5;
 
-var gunShootSound : AudioClip;
-var myAudioSource : AudioSource;
-
 private var firing : boolean = false;
 var gunSelectorScript : gunSelector;
 private var crosshairTransform : Transform;
@@ -40,14 +37,9 @@ function Update () {
 	if (Input.GetMouseButton(0) && !isSprinting && isGrounded && health > 0){
 		firing  = true;
 		gunSelectorScript.BroadcastMessage("Fire",SendMessageOptions.DontRequireReceiver);
-		myAudioSource.clip = gunShootSound;
-		myAudioSource.loop = true;
-		//myAudioSource.pitch = 0.9 + 0.2*Random.value;
-		myAudioSource.Play();
 	}
 	else{
 		firing = false;
-		myAudioSource.Stop();
 	}
 	//Accuracy.
 	var aimCrouchMultiplier : float	= 1 + crouchControllerScript.globalCrouchBlend *10;

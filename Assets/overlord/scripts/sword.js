@@ -14,7 +14,7 @@ function Update () {
 
 function OnCollisionEnter(collision : Collision) 
     {
-        Debug.Log(collision.gameObject.name);
+        //Debug.Log(collision.gameObject.name);
 	
         if (true)
         {

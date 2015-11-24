@@ -28,9 +28,6 @@ function Start(){
 	crouchControllerScript = GetComponent("crouchController");
 	healthScript = GetComponent("health");
 	isFalling = false;
-	//Cursor.visible = false;
-	Cursor.visible = false;
-	Screen.lockCursor = true;
 	//soldier = transform.Find(soldierLocation);
 }
 
@@ -114,8 +111,8 @@ function Update () {
 			targetForwardSpeed *= 0.5;
 		}
 		if(Input.GetKey(KeyCode.LeftShift)){//Sprint with left shift;
-			targetForwardSpeed *= 5;
-			targetStrafeSpeed *= 2;
+			targetForwardSpeed *= 1.5;
+			targetStrafeSpeed *= 1.5;
 		}
 	}
 	if(crouchControllerScript != null){ //Crouch speed multiplier.

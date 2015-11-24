@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using Pathfinding;
+using UnityEngine.UI;
 
 public class AutoFollow : AIPath {
     /** Animation component.
@@ -19,6 +20,7 @@ public class AutoFollow : AIPath {
     public GameObject endOfPathEffect;
     public AudioClip[] wooshsounds;
     public AudioSource myaudiosource;
+
 
     public new void Start()
     {
@@ -57,7 +59,9 @@ public class AutoFollow : AIPath {
             lastTarget = tr.position;
 
         }
-
+        Slider hpSlider = GameObject.Find("Health bar").GetComponent<Slider>();
+        if (hpSlider.value > 0)
+        {
             switch (Random.Range(0, 2))
             {
                 case 0:
@@ -73,9 +77,18 @@ public class AutoFollow : AIPath {
                     //anim.Play("attack3front");
                     break;
             }
-        //myaudiosource.clip = wooshsounds[Random.Range(0, 3)];
-        //myaudiosource.pitch = 0.98f + 0.1f * Random.value;
-        //myaudiosource.Play();
+            //myaudiosource.clip = wooshsounds[Random.Range(0, 3)];
+            //myaudiosource.pitch = 0.98f + 0.1f * Random.value;
+            //myaudiosource.Play();
+        }
+        else {
+            while (anim.IsPlaying("attack1left") || anim.IsPlaying("attack2right") || anim.IsPlaying("attack3front"))
+                anim.Stop();
+        }
+
+
+
+
 
 
 
@@ -156,4 +169,5 @@ public class AutoFollow : AIPath {
             state.speed = speed * animationSpeed;
         }
     }
+
 }
