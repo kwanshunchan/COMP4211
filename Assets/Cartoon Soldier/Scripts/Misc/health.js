@@ -7,8 +7,9 @@ var flashSpeed : float= 5f;                             // The speed the damageI
 var flashColour : Color = new Color(1f, 0f, 0f, 0.5f);      // The colour the damageImage is set to, to flash.
 var winText: GameObject;
 var loseText: GameObject;
-var scoreText: GameObject;
+var scoreText: Text;
 var toMenuButton: GameObject;
+var instantScoreText: Text;
 
 
 
@@ -18,6 +19,7 @@ private var recoilDirecion : Vector3;
 private var deathTime : float;
 private var alive : boolean = true;
 private var previousHealth : float;
+private var score : float = 0f;
 
 
 function Start() {
@@ -25,6 +27,7 @@ function Start() {
 }
 
 function Update(){
+    instantScoreText.text = "Score  " + score;
     healthSlider.value = health;
     //Debug.Log("health: " + health + " , previous: " + previousHealth);
     if (health < previousHealth) {
@@ -37,8 +40,9 @@ function Update(){
 	if( health <= 0 && alive){
 	    alive = false;
 	    deathTime = Time.time;
-		loseText.SetActive(true);
-		scoreText.SetActive(true);
+	    loseText.SetActive(true);
+	    scoreText.text = "Score  " + score;
+	    scoreText.gameObject.SetActive(true);
 		toMenuButton.SetActive(true);
 
 	}
@@ -92,4 +96,8 @@ function Damage(damage:float)
  {
      health -= damage;
 
+ }
+
+ function SetScore(score: float) {
+     this.score += score;
  }

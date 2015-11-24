@@ -69,13 +69,10 @@ function Update () {
 				hit.rigidbody.AddForceAtPosition(velocity* 1.5, hit.point);
 			}
 			var healthScript : health = hit.transform.root.GetComponent(health); //Health property.
-			var a : basichealth = hit.transform.root.GetComponent(basichealth);
-			Debug.Log(hit);
+			var a : basichealth = hit.collider.gameObject.GetComponent(basichealth);
 			if(a !=null)
 			{
-			    Debug.Log(a.health);
 			    a.health -= 20;
-			    print(a.health);
 			}
 			if(healthScript != null){
 				//healthScript.health -= 20;
