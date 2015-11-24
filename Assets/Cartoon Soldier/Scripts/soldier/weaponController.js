@@ -35,7 +35,7 @@ function Update () {
 	//Input.
 	var isGrounded : boolean = soldierMovementScript.isGrounded;
 	if (Input.GetMouseButton(0) && !isSprinting && isGrounded && health > 0){
-		firing  = true;
+	    firing  = true;
 		gunSelectorScript.BroadcastMessage("Fire",SendMessageOptions.DontRequireReceiver);
 	}
 	else{

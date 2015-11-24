@@ -27,6 +27,8 @@ function OnCollisionEnter(collision : Collision)
             if(collision.gameObject.name=="player")
             {
                 
+                var audio: AudioSource = transform.root.gameObject.GetComponent.<AudioSource>();
+                audio.Play();
                 collision.gameObject.SendMessage ("Damage", damage,SendMessageOptions.DontRequireReceiver);
            
            }

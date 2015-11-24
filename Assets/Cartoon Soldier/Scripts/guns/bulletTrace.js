@@ -34,7 +34,7 @@ function Update () {
 			reCheck = Physics.Raycast(ray,hit,bulletSpeed*Time.deltaTime); //Recheck collision for children collider.
 		}
 		if(reCheck || triggerChildrenColliderScript == null){ //If children collider or root collider are hit, process the bullet hit.
-			Destroy(gameObject);
+			//Destroy(gameObject);
 			var makeDust : boolean = true;
 			var makeHole : boolean = true;
 			var bulletHolePropertyScript : bulletHoleProperty =  hit.transform.root.GetComponent(bulletHoleProperty);

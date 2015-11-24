@@ -33,6 +33,7 @@ function Update(){
     if (health < previousHealth) {
         damageImage.color = flashColour;
         previousHealth = health;
+
     } else if (alive) {
         // ... transition the colour back to clear.
         damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);

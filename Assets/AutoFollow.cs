@@ -77,9 +77,7 @@ public class AutoFollow : AIPath {
                     //anim.Play("attack3front");
                     break;
             }
-            //myaudiosource.clip = wooshsounds[Random.Range(0, 3)];
-            //myaudiosource.pitch = 0.98f + 0.1f * Random.value;
-            //myaudiosource.Play();
+
         }
         else {
             while (anim.IsPlaying("attack1left") || anim.IsPlaying("attack2right") || anim.IsPlaying("attack3front"))
