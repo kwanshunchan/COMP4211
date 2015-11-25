@@ -1,4 +1,5 @@
 //This script controls how the soldier will move.
+//import UnityEngine.UI;
 @script RequireComponent(CharacterController);
 
 var forwardSpeedMultiplier : float = 3.0;
@@ -11,6 +12,7 @@ var turnSpeed : float = 0.0;
 var forwardSpeed : float = 0.0; //Speed the character will moved at.
 var strafeSpeed : float = 0.0;
 var isGrounded : boolean;
+//var toMenuButton : GameObject;
 
 private var stopAfterLanding : float = 0.0; //How much time in seconds will the character stop after landing.
 private var fallSpeed : float = 0.0;
@@ -29,6 +31,8 @@ function Start(){
 	healthScript = GetComponent("health");
 	isFalling = false;
 	//soldier = transform.Find(soldierLocation);
+	Screen.lockCursor = true;
+	Cursor.visible = false;
 }
 
 function Update () {
@@ -111,9 +115,23 @@ function Update () {
 			targetForwardSpeed *= 0.5;
 		}
 		if(Input.GetKey(KeyCode.LeftShift)){//Sprint with left shift;
-			targetForwardSpeed *= 1.5;
+			targetForwardSpeed *= 4;
 			targetStrafeSpeed *= 1.5;
 		}
+		/*if(Input.GetKeyDown(KeyCode.Escape)){
+			if(Screen.lockCursor)
+			{
+				Screen.lockCursor = false;
+				Cursor.visible = true;
+				toMenuButton.setActive(true);
+			}
+			else
+			{
+				Screen.lockCursor = true;
+				Cursor.visible = false;
+				toMenuButton.setActive(false);
+			}
+		}*/
 	}
 	if(crouchControllerScript != null){ //Crouch speed multiplier.
 		targetForwardSpeed = Mathf.Lerp(targetForwardSpeed, targetForwardSpeed * crouchControllerScript.crouchSpeedMultiplier, crouchControllerScript.globalCrouchBlend);

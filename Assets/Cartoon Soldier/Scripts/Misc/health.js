@@ -58,6 +58,8 @@ function Update(){
         damageImage.color = Color.Lerp (damageImage.color, Color.clear, flashSpeed * Time.deltaTime);
     }
 	if( health <= 0 && alive){
+		Screen.lockCursor = false;
+		Cursor.visible = true;
 	    alive = false;
 	    deathTime = Time.time;
 	    loseText.SetActive(true);
@@ -67,6 +69,8 @@ function Update(){
 
 	}
 	if (protectHealth <=0 && alive) {
+		Screen.lockCursor = false;
+		Cursor.visible = true;
 	    damageImage.color = flashColour;
 	    alive = false;
 	    loseText.SetActive(true);
@@ -77,6 +81,8 @@ function Update(){
 	}
 
 	if (alive && secondNumber == 0 && protectHealth > 0 && !isGameEnd) {
+		Screen.lockCursor = false;
+		Cursor.visible = true;
 	    winText.SetActive(true);
 	    scoreText.text = "Score  " + (score + protectHealth);
 	    scoreText.gameObject.SetActive(true);

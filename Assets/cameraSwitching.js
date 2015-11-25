@@ -9,7 +9,7 @@ function Start () {
 }
 
 function Update () {
-    if(Input.GetKeyDown(KeyCode.C))
+    if(Input.GetKeyDown(KeyCode.T))
     {
         if(camera1.active == true)
         {

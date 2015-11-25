@@ -123,7 +123,8 @@ function Update()
 		}
 	 }
 	 var targetVelocity = targetDirection;
-	 if (Input.GetButton("Fire2") && canrun && !isjumping)
+	 //if (Input.GetButton("Fire2") && canrun && !isjumping)
+	if (canrun && !isjumping)
 	{
 			
 		targetVelocity *= runspeed;
@@ -140,7 +141,7 @@ function Update()
 	{
 		var attackState = animator.GetCurrentAnimatorStateInfo(0).IsName("attacks");
 		swordscript.canattack = attackState;
-		if (Input.GetButtonDown("Fire1"))
+		/*if (Input.GetButtonDown("Fire1"))
 		{
 			
 			
@@ -163,27 +164,17 @@ function Update()
    			
 		}
 		else
-		{
+		{*/
 			animator.SetBool("attack",false);
 			
-		}
+		//}
 	}
 	
 	if (controller.isGrounded) 
     {
-    	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	   
-		animator.SetFloat("speed",horizontalspeed,dampTime, 0.2);
-		if (Input.GetButton ("Jump") && Time.time > nextjump) 
+    	animator.SetFloat("speed",horizontalspeed,dampTime, 0.2);
+		//if (Input.GetButton ("Jump") && Time.time > nextjump)
+		if (Time.time > nextjump) 
 		{
 					nextjump = Time.time + jumpinterval;
 					moveDirection.y = jumpHeight;
@@ -213,11 +204,11 @@ function Update()
 		controller.Move (moveDirection * Time.deltaTime);   
 	
  
-	 if (Input.GetButtonDown("Fire3"))
+/*	 if (Input.GetButtonDown("Fire3"))
 	 {
 	 	 weaponselect();	
 	 }
-      
+*/      
 	 animator.SetBool("grounded",controller.isGrounded);	 
    
  }
