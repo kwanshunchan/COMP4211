@@ -14,7 +14,7 @@ function Update () {
 
 function OnCollisionEnter(collision : Collision) 
     {
-        //Debug.Log(collision.gameObject.name);
+        Debug.Log(collision.gameObject.name);
 	
         if (true)
         {
@@ -31,7 +31,16 @@ function OnCollisionEnter(collision : Collision)
                 audio.Play();
                 collision.gameObject.SendMessage ("Damage", damage,SendMessageOptions.DontRequireReceiver);
            
-           }
+            }
+            
+            if(collision.gameObject.name=="Protect Object")
+            {
+                
+                var audio1: AudioSource = transform.root.gameObject.GetComponent.<AudioSource>();
+                audio1.Play();
+                GameObject.Find("player").GetComponent(health).DamageProtectObject(10);
+           
+            }
 		}
 }
 	

@@ -24,7 +24,6 @@ public class AutoFollow : AIPath {
 
     public new void Start()
     {
-
         //Prioritize the walking animation
         anim["runneutral"].layer = 10;
 
